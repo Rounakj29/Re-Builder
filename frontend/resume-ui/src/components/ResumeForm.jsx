@@ -81,7 +81,13 @@ export default function ResumeFormModal({ isOpen, onClose, onAdd, onUpdate, edit
       onClose();
       setForm(emptyResume);
     } catch (err) {
-      setError('Failed to save resume');
+      console.error('Error details:', err); // Log the full error object for debugging
+      const status = err.response?.status;
+      const errorData = err.response?.data;
+      const errorMessage = errorData?.message || err.message || 'Failed to save resume';
+
+      // Include status code and additional details in the error message
+      setError(`Error ${status || ''}: ${errorMessage}. ${errorData ? JSON.stringify(errorData) : ''}`);
     } finally {
       setLoading(false);
     }
@@ -195,16 +201,17 @@ export default function ResumeFormModal({ isOpen, onClose, onAdd, onUpdate, edit
               {form[section.key].map((item, i) => (
                 <div key={i} className="border p-4 mb-2 rounded relative bg-gray-50">
                   {section.fields.map(field => (
-                    <div key={field} className="mb-4">
-                      <label className="font-semibold text-gray-700">{field.charAt(0).toUpperCase() + field.slice(1)}</label>
-                      <input
-                        className="input"
-                        placeholder={field}
-                        value={item[field] || ''}
-                        onChange={e => handleListChange(section.key, i, field, e.target.value)}
-                      />
-                    </div>
-                  ))}
+  <div key={field} className="mb-4">
+    <label className="font-semibold text-gray-700">{field.charAt(0).toUpperCase() + field.slice(1)}</label>
+    <input
+      className="input"
+      placeholder={field}
+      type={['startDate', 'endDate', 'dateIssued', 'expirationDate'].includes(field) ? 'date' : 'text'}
+      value={item[field] || ''}
+      onChange={e => handleListChange(section.key, i, field, e.target.value)}
+    />
+  </div>
+))}
                   <button
                     type="button"
                     onClick={() => removeItem(section.key, i)}

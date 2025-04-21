@@ -41,3 +41,20 @@
 .read-the-docs {
   color: #888;
 }
+
+/* You can put this in your global css */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-container, .print-container * {
+    visibility: visible;
+  }
+  .print-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 794px;
+    height: 1123px;
+  }
+}

@@ -53,6 +53,7 @@ namespace backend.Controllers
             {
                 var success = await _storage.AddAsync(resume);
                 if (!success)
+                    //throw why it failed
                     return StatusCode(500, new { message = "Failed to add resume" });
 
                 return CreatedAtAction(nameof(Get), new { id = resume.Id }, resume);

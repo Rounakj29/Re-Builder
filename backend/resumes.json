@@ -260,5 +260,45 @@
     "Languages": null,
     "ContactInfo": null,
     "SocialLinks": null
+  },
+  {
+    "Id": 6,
+    "FullName": "Rounak Jaiswal",
+    "Title": "Cloud 3",
+    "Summary": "asda",
+    "Experiences": [
+      {
+        "Id": 0,
+        "Company": "Insight Enterprises",
+        "Role": "Intern",
+        "Location": "Noida",
+        "StartDate": "2025-03-31T00:00:00",
+        "EndDate": "2025-04-15T00:00:00",
+        "Description": "Worked as intern on many Pocs. Mainly based on auth, jwt , .Net framework.",
+        "Technologies": []
+      }
+    ],
+    "Educations": [
+      {
+        "Id": 0,
+        "Institution": "Reva University",
+        "Degree": "B.Tech",
+        "FieldOfStudy": " CS",
+        "StartDate": "2021-01-21T00:00:00",
+        "EndDate": "2025-04-02T00:00:00",
+        "GradeOrScore": "8.5"
+      }
+    ],
+    "Projects": [],
+    "Skills": [],
+    "Certifications": [],
+    "Languages": [],
+    "ContactInfo": {
+      "Id": 0,
+      "Email": "rounakjaiswal.wrk@gmail.com",
+      "Phone": "1234567890",
+      "Address": "Bangalore, India."
+    },
+    "SocialLinks": []
   }
 ]

@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
+import { useReactToPrint } from 'react-to-print';
 import ResumeForm from '../components/ResumeForm';
+import ResumePreview from '../components/ResumePreview.jsx';
 
 const API = 'https://localhost:7211/api/resumes';
 
@@ -8,8 +10,11 @@ function Home() {
   const [resumes, setResumes] = useState([]);
   const [editingResume, setEditingResume] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedResume, setSelectedResume] = useState(null);
 
-  // Fetch resumes from API on component mount
+  const printRef = useRef();
+
+  // Fetch resumes
   useEffect(() => {
     axios
       .get(API)
@@ -17,33 +22,39 @@ function Home() {
       .catch(err => console.error(err));
   }, []);
 
+  const handlePrint = useReactToPrint({
+    content: () => printRef.current,
+    documentTitle: selectedResume ? `${selectedResume.fullName}_Resume` : 'Resume',
+    onAfterPrint: () => console.log('Print completed')
+  });
+
   const handleAdd = (newResume) => {
     setResumes(prev => [...prev, newResume]);
-    setIsModalOpen(false); // Close the modal after adding the resume
+    setIsModalOpen(false);
   };
 
   const handleUpdate = (updatedResume) => {
     setResumes(prev =>
       prev.map(resume => (resume.id === updatedResume.id ? updatedResume : resume))
     );
-    setIsModalOpen(false); // Close the modal after updating the resume
-    setEditingResume(null); // Clear the editing state
+    setIsModalOpen(false);
+    setEditingResume(null);
   };
 
   const handleEdit = (resume) => {
     setEditingResume(resume);
-    setIsModalOpen(true); // Open the modal for editing the resume
+    setIsModalOpen(true);
   };
 
   const handleAddNew = () => {
-    setEditingResume(null); // Ensure no resume is being edited when adding a new one
-    setIsModalOpen(true); // Open the modal for adding a new resume
+    setEditingResume(null);
+    setIsModalOpen(true);
   };
 
   return (
     <div className="p-4 max-w-7xl mx-auto">
       <h1 className="text-2xl font-bold mb-4">User Manager</h1>
-      
+
       {/* Add Resume Button */}
       <button
         onClick={handleAddNew}
@@ -52,16 +63,16 @@ function Home() {
         Add New User
       </button>
 
-      {/* Render ResumeForm Modal */}
+      {/* Resume Form Modal */}
       <ResumeForm
         isOpen={isModalOpen}
         onAdd={handleAdd}
         onUpdate={handleUpdate}
-        onClose={() => setIsModalOpen(false)} // Close the modal
+        onClose={() => setIsModalOpen(false)}
         editingResume={editingResume}
       />
 
-      {/* Render Resumes List */}
+      {/* Resume List */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {resumes.map(resume => (
           <div key={resume.id} className="border p-4 mb-2 rounded shadow bg-white">
@@ -77,7 +88,7 @@ function Home() {
                 Edit
               </button>
               <button
-                onClick={() => alert('View functionality not implemented yet.')}
+                onClick={() => setSelectedResume(resume)}
                 className="bg-blue-600 text-white px-4 py-2 rounded"
               >
                 View
@@ -86,6 +97,34 @@ function Home() {
           </div>
         ))}
       </div>
+
+      {/* Resume Preview + Download Modal */}
+      {selectedResume && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+          <div className="bg-white p-4 rounded-lg w-[850px] max-h-[90vh] overflow-y-auto relative">
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedResume(null)}
+              className="absolute top-2 right-2 text-gray-600"
+            >
+              ✕
+            </button>
+
+            {/* Download Button */}
+            <button 
+              onClick={handlePrint}
+              className="mb-4 px-4 py-2 bg-green-600 text-white rounded"
+            >
+              Download as PDF
+            </button>
+
+            {/* Resume Content */}
+            <div className="print-container">
+              <ResumePreview ref={printRef} resume={selectedResume} />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
