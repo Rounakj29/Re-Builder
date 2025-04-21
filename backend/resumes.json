@@ -1,0 +1,236 @@
+[
+  {
+    "Id": 1,
+    "FullName": "string",
+    "Title": "string",
+    "Summary": "string",
+    "Experiences": [
+      {
+        "Id": 0,
+        "Company": "string",
+        "Role": "string",
+        "Location": "string",
+        "StartDate": "2025-04-20T12:28:52.053Z",
+        "EndDate": "2025-04-20T12:28:52.053Z",
+        "Description": "string",
+        "Technologies": [
+          "string"
+        ]
+      }
+    ],
+    "Educations": [
+      {
+        "Id": 0,
+        "Institution": "string",
+        "Degree": "string",
+        "FieldOfStudy": "string",
+        "StartDate": "2025-04-20T12:28:52.054Z",
+        "EndDate": "2025-04-20T12:28:52.054Z",
+        "GradeOrScore": "string"
+      }
+    ],
+    "Projects": [
+      {
+        "Id": 0,
+        "Name": "string",
+        "Summary": "string",
+        "Technologies": "string",
+        "Url": "string"
+      }
+    ],
+    "Skills": [
+      {
+        "Id": 0,
+        "Name": "string",
+        "Category": "string",
+        "Proficiency": "string"
+      }
+    ],
+    "Certifications": [
+      {
+        "Id": 0,
+        "Title": "string",
+        "Issuer": "string",
+        "DateIssued": "2025-04-20T12:28:52.054Z",
+        "ExpirationDate": "2025-04-20T12:28:52.054Z",
+        "CredentialUrl": "string"
+      }
+    ],
+    "Languages": [
+      {
+        "Id": 0,
+        "Name": "string",
+        "Proficiency": "string"
+      }
+    ],
+    "ContactInfo": {
+      "Id": 0,
+      "Email": "string",
+      "Phone": "string",
+      "Address": "string"
+    },
+    "SocialLinks": [
+      {
+        "Id": 0,
+        "Platform": "string",
+        "Url": "string"
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "FullName": "New",
+    "Title": "string",
+    "Summary": "string",
+    "Experiences": [
+      {
+        "Id": 0,
+        "Company": "string",
+        "Role": "string",
+        "Location": "string",
+        "StartDate": "2025-04-20T12:29:42.218Z",
+        "EndDate": "2025-04-20T12:29:42.218Z",
+        "Description": "string",
+        "Technologies": [
+          "string"
+        ]
+      }
+    ],
+    "Educations": [
+      {
+        "Id": 0,
+        "Institution": "string",
+        "Degree": "string",
+        "FieldOfStudy": "string",
+        "StartDate": "2025-04-20T12:29:42.218Z",
+        "EndDate": "2025-04-20T12:29:42.218Z",
+        "GradeOrScore": "string"
+      }
+    ],
+    "Projects": [
+      {
+        "Id": 0,
+        "Name": "string",
+        "Summary": "string",
+        "Technologies": "string",
+        "Url": "string"
+      }
+    ],
+    "Skills": [
+      {
+        "Id": 0,
+        "Name": "string",
+        "Category": "string",
+        "Proficiency": "string"
+      }
+    ],
+    "Certifications": [
+      {
+        "Id": 0,
+        "Title": "string",
+        "Issuer": "string",
+        "DateIssued": "2025-04-20T12:29:42.218Z",
+        "ExpirationDate": "2025-04-20T12:29:42.218Z",
+        "CredentialUrl": "string"
+      }
+    ],
+    "Languages": [
+      {
+        "Id": 0,
+        "Name": "string",
+        "Proficiency": "string"
+      }
+    ],
+    "ContactInfo": {
+      "Id": 0,
+      "Email": "string",
+      "Phone": "string",
+      "Address": "string"
+    },
+    "SocialLinks": [
+      {
+        "Id": 0,
+        "Platform": "string",
+        "Url": "string"
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "FullName": "string",
+    "Title": "string",
+    "Summary": "string",
+    "Experiences": [
+      {
+        "Id": 0,
+        "Company": "string",
+        "Role": "string",
+        "Location": "string",
+        "StartDate": "2025-04-20T12:50:38.987Z",
+        "EndDate": "2025-04-20T12:50:38.987Z",
+        "Description": "string",
+        "Technologies": [
+          "string"
+        ]
+      }
+    ],
+    "Educations": [
+      {
+        "Id": 0,
+        "Institution": "string",
+        "Degree": "string",
+        "FieldOfStudy": "string",
+        "StartDate": "2025-04-20T12:50:38.987Z",
+        "EndDate": "2025-04-20T12:50:38.987Z",
+        "GradeOrScore": "string"
+      }
+    ],
+    "Projects": [
+      {
+        "Id": 0,
+        "Name": "string",
+        "Summary": "string",
+        "Technologies": "string",
+        "Url": "string"
+      }
+    ],
+    "Skills": [
+      {
+        "Id": 0,
+        "Name": "string",
+        "Category": "string",
+        "Proficiency": "string"
+      }
+    ],
+    "Certifications": [
+      {
+        "Id": 0,
+        "Title": "string",
+        "Issuer": "string",
+        "DateIssued": "2025-04-20T12:50:38.987Z",
+        "ExpirationDate": "2025-04-20T12:50:38.987Z",
+        "CredentialUrl": "string"
+      }
+    ],
+    "Languages": [
+      {
+        "Id": 0,
+        "Name": "string",
+        "Proficiency": "string"
+      }
+    ],
+    "ContactInfo": {
+      "Id": 0,
+      "Email": "string",
+      "Phone": "string",
+      "Address": "string"
+    },
+    "SocialLinks": [
+      {
+        "Id": 0,
+        "Platform": "string",
+        "Url": "string"
+      }
+    ]
+  }
+]
