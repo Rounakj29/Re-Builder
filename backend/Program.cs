@@ -10,7 +10,23 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<JsonStorageService>(provider =>
 {
-    var filePath = "C:\\Users\\Professional\\source\\repos\\backend\\backend\\resumes.json";
+    var filePath = ".\\resumes.json";
+    // Validate the file path
+    if (!File.Exists(filePath))
+    {
+        // Create the file if it doesn't exist
+        File.Create(filePath).Dispose();
+    }
+    else
+    {
+        // Optionally, you can validate the file content here
+        var json = File.ReadAllText(filePath);
+        if (string.IsNullOrEmpty(json))
+        {
+            // Handle empty file case
+            File.WriteAllText(filePath, "[]");
+        }
+    }
     return new JsonStorageService(filePath);
 });
 
